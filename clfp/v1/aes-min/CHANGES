@@ -1,0 +1,22 @@
+The version in this directory contains minor changes compared to the original source code [1] to make the inverse key schedule function accessible to our main C module.
+
+[1] https://github.com/cmcqueen/aes-min/tree/728e156091b95a7f2e8882b7dee012e9a6ea6213
+
+--------------------------------------------------------------------------------------------
+
+Changes to aes-min.h (our aes-min.h vs. original aes-min.h):
+
+53,54d52
+< void aes128_key_schedule_inv_round(uint8_t p_key[AES128_KEY_SIZE], uint8_t rcon);
+< 
+
+--------------------------------------------------------------------------------------------
+
+Changes to aes-min.c (our aes-min.c vs. original aes-min.c):
+
+80a81
+> static void aes128_key_schedule_inv_round(uint8_t p_key[AES128_KEY_SIZE], uint8_t rcon);
+398c399
+< void aes128_key_schedule_inv_round(uint8_t p_key[AES128_KEY_SIZE], uint8_t rcon)
+---
+> static void aes128_key_schedule_inv_round(uint8_t p_key[AES128_KEY_SIZE], uint8_t rcon)
